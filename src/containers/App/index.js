@@ -1,20 +1,20 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import styles from "./styles";
+import styles from './styles';
 
-import { withStyles } from "@material-ui/core";
+import TaskBoard from '../TaskBoard';
+
+import theme from '../../commons/Theme';
+
+import { withStyles } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/styles';
 
 class App extends Component {
   render() {
-    const { classes } = this.props;
     return (
-      <div className="App">
-        <div className={classes.box}>
-          <div className={classes.shape}>ReactJs</div>
-          <div className={classes.shape}>Angular</div>
-          <div className={classes.shape}>VueJS</div>
-        </div>
-      </div>
+      <ThemeProvider theme={theme}>
+        <TaskBoard />
+      </ThemeProvider>
     );
   }
 }
