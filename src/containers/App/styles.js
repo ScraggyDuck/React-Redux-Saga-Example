@@ -1,13 +1,3 @@
-const styles = () => ({
-  box: {
-    display: "flex",
-    alignItems: "center"
-  },
-  shape: {
-    margin: "10px",
-    padding: "10px",
-    backgroundColor: "red"
-  }
-});
+const styles = () => ({});
 
 export default styles;
