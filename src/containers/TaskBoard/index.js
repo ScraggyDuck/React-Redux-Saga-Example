@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import TaskList from '../../components/TaskList';
+import TaskForm from '../../components/TaskForm';
 
 import styles from './styles';
 import { STATUSES } from '../../constants';
@@ -37,6 +38,10 @@ const listTask = [
 ];
 
 class TaskBoard extends Component {
+  state = {
+    open: false
+  };
+
   renderBoard = () => {
     let xhtml = null;
     xhtml = (
@@ -51,14 +56,40 @@ class TaskBoard extends Component {
     );
     return xhtml;
   };
+
+  renderTaskForm = () => {
+    const { open } = this.state;
+    let xhtml = null;
+    xhtml = <TaskForm open={open} onClose={this.handleCloseForm} />;
+    return xhtml;
+  };
+
+  handleClickOpenForm = () => {
+    this.setState({
+      open: true
+    });
+  };
+
+  handleCloseForm = () => {
+    this.setState({
+      open: false
+    });
+  };
+
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.taskBoard}>
-        <Button variant='contained' color='primary' className={classes.button}>
+        <Button
+          variant='contained'
+          color='primary'
+          className={classes.button}
+          onClick={this.handleClickOpenForm}
+        >
           <AddIcon /> Add new todo
         </Button>
         {this.renderBoard()}
+        {this.renderTaskForm()}
       </div>
     );
   }
