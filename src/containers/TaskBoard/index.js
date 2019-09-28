@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
 
+import TaskList from '../../components/TaskList';
+
 import styles from './styles';
 import { STATUSES } from '../../constants';
 
 import { withStyles } from '@material-ui/core';
-import {
-  Button,
-  Grid,
-  Card,
-  CardActions,
-  CardContent,
-  Typography,
-  Box
-} from '@material-ui/core';
+import { Button, Grid } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
 const listTask = [
@@ -44,43 +38,14 @@ const listTask = [
 
 class TaskBoard extends Component {
   renderBoard = () => {
-    const { classes } = this.props;
     let xhtml = null;
     xhtml = (
       <Grid container spacing={2}>
-        {STATUSES.map(status => {
+        {STATUSES.map((status, index) => {
           const taskFiltered = listTask.filter(
             task => task.status === status.value
           );
-          return (
-            <Grid item md={4} xs={12}>
-              <Box mt={2} mb={2}>
-                <div className={classes.status}>{status.label}</div>
-              </Box>
-              <div className={classes.wrapperListTask}>
-                {taskFiltered.map(task => {
-                  const { id, title, description } = task;
-                  return (
-                    <Card key={id}>
-                      <CardContent>
-                        <Grid container justify='space-between'>
-                          <Grid item md={8}>
-                            <Typography component='h2'>{title}</Typography>
-                          </Grid>
-                          <Grid item md={4}>
-                            {status.label}
-                          </Grid>
-                        </Grid>
-                      </CardContent>
-                      <CardActions>
-                        <Button size='small'>Button</Button>
-                      </CardActions>
-                    </Card>
-                  );
-                })}
-              </div>
-            </Grid>
-          );
+          return <TaskList key={index} tasks={taskFiltered} status={status} />;
         })}
       </Grid>
     );
