@@ -16,31 +16,31 @@ class TaskForm extends Component {
   render() {
     const { classes, open, onClose } = this.props;
     return (
-      <Dialog open={open} aria-labelledby='form-dialog-title'>
-        <DialogTitle id='form-dialog-title'>Add new todo</DialogTitle>
+      <Dialog open={open} aria-labelledby="form-dialog-title">
+        <DialogTitle id="form-dialog-title">Add new todo</DialogTitle>
         <DialogContent>
           <TextField
-            id='standard-multiline-flexible'
-            label='Name'
+            id="standard-multiline-flexible"
+            label="Name"
             multiline
-            rowsMax='4'
+            rowsMax="4"
             className={classes.textField}
-            margin='normal'
+            margin="normal"
           />
           <TextField
-            id='standard-multiline-flexible'
-            label='Description  '
+            id="standard-multiline-flexible"
+            label="Description  "
             multiline
-            rowsMax='4'
+            rowsMax="4"
             className={classes.textField}
-            margin='normal'
+            margin="normal"
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={onClose} color='primary'>
+          <Button onClick={onClose} color="primary">
             OK
           </Button>
-          <Button onClick={onClose} color='primary'>
+          <Button onClick={onClose} color="primary">
             Cancel
           </Button>
         </DialogActions>

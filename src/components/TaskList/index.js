@@ -4,8 +4,7 @@ import TaskItem from '../TaskItem';
 
 import styles from './styles';
 
-import { withStyles } from '@material-ui/core';
-import { Grid, Box } from '@material-ui/core';
+import { Grid, Box, withStyles } from '@material-ui/core';
 
 class TaskList extends Component {
   render() {
@@ -16,9 +15,9 @@ class TaskList extends Component {
           <div className={classes.status}>{status.label}</div>
         </Box>
         <div className={classes.wrapperListTask}>
-          {tasks.map(task => {
-            return <TaskItem key={task.id} task={task} status={status} />;
-          })}
+          {tasks.map(task => (
+            <TaskItem key={task.id} task={task} status={status} />
+          ))}
         </div>
       </Grid>
     );

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import styles from './styles';
 
-import { withStyles } from '@material-ui/core';
 import {
+  withStyles,
   Grid,
   Box,
   Card,
@@ -22,9 +22,9 @@ class TaskItem extends Component {
       <Box mb={2}>
         <Card>
           <CardContent>
-            <Grid container justify='space-between'>
+            <Grid container justify="space-between">
               <Grid item md={8}>
-                <Typography component='h2'>{title}</Typography>
+                <Typography component="h2">{title}</Typography>
               </Grid>
               <Grid item md={4}>
                 {status.label}
@@ -34,20 +34,20 @@ class TaskItem extends Component {
           </CardContent>
           <CardActions className={classes.cardActions}>
             <Fab
-              color='primary'
-              aria-label='edit'
+              color="primary"
+              aria-label="edit"
               className={classes.fab}
-              size='small'
+              size="small"
             >
-              <Icon size='small'>edit</Icon>
+              <Icon size="small">edit</Icon>
             </Fab>
             <Fab
-              color='secondary'
-              aria-label='delete'
+              color="secondary"
+              aria-label="delete"
               className={classes.fab}
-              size='small'
+              size="small"
             >
-              <Icon size='small'>delete</Icon>
+              <Icon size="small">delete</Icon>
             </Fab>
           </CardActions>
         </Card>

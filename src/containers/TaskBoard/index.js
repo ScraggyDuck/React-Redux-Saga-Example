@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
+import PropTypes from 'prop-types';
+
 import TaskList from '../../components/TaskList';
 import TaskForm from '../../components/TaskForm';
 
 import styles from './styles';
 import { STATUSES } from '../../constants';
 
-import { withStyles } from '@material-ui/core';
-import { Button, Grid } from '@material-ui/core';
+import { withStyles, Button, Grid } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
 const listTask = [
@@ -81,8 +82,8 @@ class TaskBoard extends Component {
     return (
       <div className={classes.taskBoard}>
         <Button
-          variant='contained'
-          color='primary'
+          variant="contained"
+          color="primary"
           className={classes.button}
           onClick={this.handleClickOpenForm}
         >
@@ -94,5 +95,9 @@ class TaskBoard extends Component {
     );
   }
 }
+
+TaskBoard.propTypes = {
+  classes: PropTypes.object
+};
 
 export default withStyles(styles)(TaskBoard);
