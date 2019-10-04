@@ -11,6 +11,10 @@ import { STATUSES } from '../../constants';
 import { withStyles, Button, Grid } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as tasksActions from '../../actions/tasks';
+
 const listTask = [
   {
     id: 0,
@@ -42,6 +46,12 @@ class TaskBoard extends Component {
   state = {
     open: false
   };
+
+  componentDidMount() {
+    const { tasksActionCreators } = this.props;
+    const { fetchListTasks } = tasksActionCreators;
+    fetchListTasks();
+  }
 
   renderBoard = () => {
     let xhtml = null;
@@ -97,7 +107,22 @@ class TaskBoard extends Component {
 }
 
 TaskBoard.propTypes = {
-  classes: PropTypes.object
+  classes: PropTypes.object,
+  tasksActionCreators: PropTypes.shape({
+    fetchListTasks: PropTypes.func
+  })
 };
 
-export default withStyles(styles)(TaskBoard);
+const mapStateToProps = null;
+const mapDispatchToProps = dispatch => {
+  return {
+    tasksActionCreators: bindActionCreators(tasksActions, dispatch)
+  };
+};
+
+export default withStyles(styles)(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(TaskBoard)
+);

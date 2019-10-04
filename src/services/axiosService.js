@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-class TasksService {
+class AxiosService {
   constructor() {
     const instance = axios.create();
+    instance.interceptors.response.use(this.handleSuccess, this.handleError);
     this.instance = instance;
   }
 
@@ -19,4 +20,4 @@ class TasksService {
   }
 }
 
-export default new TasksService();
+export default new AxiosService();
