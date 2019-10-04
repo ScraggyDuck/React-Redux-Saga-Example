@@ -1,19 +1,14 @@
-import React, { Component } from 'react';
-
-import PropTypes from 'prop-types';
-
-import TaskList from '../../components/TaskList';
-import TaskForm from '../../components/TaskForm';
-
-import styles from './styles';
-import { STATUSES } from '../../constants';
-
-import { withStyles, Button, Grid } from '@material-ui/core';
+import { Button, Grid, withStyles } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as tasksActions from '../../actions/tasks';
+import TaskForm from '../../components/TaskForm';
+import TaskList from '../../components/TaskList';
+import { STATUSES } from '../../constants';
+import styles from './styles';
 
 class TaskBoard extends Component {
   state = {
