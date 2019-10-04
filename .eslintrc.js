@@ -34,7 +34,8 @@ module.exports = {
     'no-use-before-define': 0,
     'no-param-reassign': 0,
     'import/no-duplicates': 1,
-    'import/prefer-default-export': 0
+    'import/prefer-default-export': 0,
+    'no-case-declarations': 0
   },
   plugins: ['prettier'],
   env: {

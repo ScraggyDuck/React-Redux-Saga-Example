@@ -15,33 +15,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as tasksActions from '../../actions/tasks';
 
-const listTask = [
-  {
-    id: 0,
-    title: 'Play game',
-    description: 'With my friends',
-    status: 1
-  },
-  {
-    id: 1,
-    title: 'Play game1',
-    description: 'With my friends1',
-    status: 0
-  },
-  {
-    id: 2,
-    title: 'Play game2',
-    description: 'With my friends2',
-    status: 1
-  },
-  {
-    id: 3,
-    title: 'Play game3',
-    description: 'With my friends3',
-    status: 2
-  }
-];
-
 class TaskBoard extends Component {
   state = {
     open: false
@@ -49,16 +22,17 @@ class TaskBoard extends Component {
 
   componentDidMount() {
     const { tasksActionCreators } = this.props;
-    const { fetchListTasks } = tasksActionCreators;
-    fetchListTasks();
+    const { fetchListTasksRequest } = tasksActionCreators;
+    fetchListTasksRequest();
   }
 
   renderBoard = () => {
+    const { listTasks } = this.props;
     let xhtml = null;
     xhtml = (
       <Grid container spacing={2}>
         {STATUSES.map((status, index) => {
-          const taskFiltered = listTask.filter(
+          const taskFiltered = listTasks.filter(
             task => task.status === status.value
           );
           return <TaskList key={index} tasks={taskFiltered} status={status} />;
@@ -109,11 +83,16 @@ class TaskBoard extends Component {
 TaskBoard.propTypes = {
   classes: PropTypes.object,
   tasksActionCreators: PropTypes.shape({
-    fetchListTasks: PropTypes.func
-  })
+    fetchListTasksRequest: PropTypes.func
+  }),
+  listTasks: PropTypes.object
 };
 
-const mapStateToProps = null;
+const mapStateToProps = state => {
+  return {
+    listTasks: state.tasks.listTasks
+  };
+};
 const mapDispatchToProps = dispatch => {
   return {
     tasksActionCreators: bindActionCreators(tasksActions, dispatch)
