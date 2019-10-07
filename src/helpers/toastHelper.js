@@ -9,3 +9,7 @@ export const toastError = err => {
     toast.error(message);
   }
 };
+
+export const toastSuccess = () => {
+  toast.success('Load data successfully!');
+};

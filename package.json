@@ -1,5 +1,5 @@
 {
-  "name": "redux-saga",
+  "name": "redux-saga-tutorial",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,6 +12,7 @@
     "react-scripts": "3.0.1",
     "react-toastify": "^5.4.0",
     "redux": "^4.0.4",
+    "redux-saga": "^1.1.1",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {

@@ -1,5 +1,5 @@
 import * as tasksTypes from '../constants/tasks';
-import { toastError } from '../helpers/toastHelper';
+import { toastError, toastSuccess } from '../helpers/toastHelper';
 
 const initialState = {
   listTasks: []
@@ -13,6 +13,7 @@ const reducer = (state = initialState, action) => {
         listTasks: []
       };
     case tasksTypes.FETCH_TASKS_SUCCESS:
+      toastSuccess();
       const { data } = action.payload;
       return {
         ...state,

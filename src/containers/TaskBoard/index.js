@@ -80,7 +80,7 @@ TaskBoard.propTypes = {
   tasksActionCreators: PropTypes.shape({
     fetchListTasksRequest: PropTypes.func
   }),
-  listTasks: PropTypes.object
+  listTasks: PropTypes.array
 };
 
 const mapStateToProps = state => {
