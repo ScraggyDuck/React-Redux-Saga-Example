@@ -1,4 +1,4 @@
-import * as tasksApis from '../apis/tasks';
+// import * as tasksApis from '../apis/tasks';
 import * as tasksContants from '../constants/tasks';
 
 export const fetchListTasks = () => {
@@ -25,17 +25,17 @@ export const fetchListTasksFailed = err => {
   };
 };
 
-export const fetchListTasksRequest = () => {
-  return dispatch => {
-    dispatch(fetchListTasks());
-    tasksApis
-      .getList()
-      .then(res => {
-        const { data } = res;
-        dispatch(fetchListTasksSuccess(data));
-      })
-      .catch(err => {
-        dispatch(fetchListTasksFailed(err));
-      });
-  };
-};
+// export const fetchListTasksRequest = () => {
+//   return dispatch => {
+//     dispatch(fetchListTasks());
+//     tasksApis
+//       .getList()
+//       .then(res => {
+//         const { data } = res;
+//         dispatch(fetchListTasksSuccess(data));
+//       })
+//       .catch(err => {
+//         dispatch(fetchListTasksFailed(err));
+//       });
+//   };
+// };
